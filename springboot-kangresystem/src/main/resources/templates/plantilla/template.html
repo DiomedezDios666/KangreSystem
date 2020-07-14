@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyemleaf.org" >
+<head th:fragment="head" >
+<meta charset="UTF-8">
+<title> KangreSystem </title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<link rel="shotcut icon" th:href="@{/img/logosimbolo.png}">
+<script src="https://kit.fontawesome.com/eb1bb051d4.js"></script>
+</head>
+<body>
+	
+	<!-- HEADER -->
+	<header th:fragment="header" >
+	
+		<div class="container-fluid px-0">
+            <!-- Logo header kangresystem -->
+            <div class="row bg-warning logo px-4 d-flex align-items-center">
+                <div class="col">
+                    <a th:href="@{/index.html}" class="img-1 d-none d-md-block text-center">
+                        <img th:src="@{/img/isologo.png}" alt="Logo KangreSytem" class="img-fluid mx-auto">	
+                    </a>
+                    <div class="d-flex justify-content-between img-2 w-100">
+                        <a th:href="@{/index.html}" class="d-block d-md-none my-auto">
+                            <img th:src="@{/img/logosimboloBlanco.png}" alt="Logo KangreSytem" class="img-fluid simbolo">	
+                        </a>
+                        <a href="../index.html" class="d-block d-md-none my-auto">
+                            <img th:src="@{/img/logoTextoRojo.png}" alt="Logo KangreSytem" class="img-fluid texto ml-auto">	
+                        </a>
+                    </div>
+                </div>
+            </div>
+		</div>
+	
+	</header>
+
+	<!-- NAV -->
+	<nav th:fragment="navbar" >
+	
+		<div class="sticky-top">
+        <!-- Barra de navegacion para vista portatiles y desktop -->
+        <div class="row barraNavega p-2 px-4 sticky-top">
+            <div class="col  d-flex d-inline p-0">
+                <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                    <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navIndex" aria-controls="navIndex" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse d-none d-lg-block position-relative" id="navIndex">
+                        <div class="navbar-nav navIndex">
+                            <form class="mb-auto ml-auto d-block d-sm-none my-2">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary" type="submit">
+                                            <i class="icon-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <a class="nav-item nav-link font-weight-bold" href="#">Home</a>
+                            <a class="nav-item nav-link" href="menu.php" role="button" id="nuestroMenu">Menu</a>
+                            <a class="nav-item nav-link" href="restaurantes.php" id="restaurantes">Restaurants</a>
+                            <a class="nav-item nav-link" href="contactenos.php">Contact Us</a>
+                            <a class="nav-item nav-link" href="quienesSomos.php">Ho we are?</a>
+                            <a class="nav-item nav-link" href="trabajaConNosotros.php">Make Money with Us</a>
+                            <a class="nav-item nav-link" href="error404.html" target="_">Error 404</a>
+                            <a class="nav-item nav-link" href="error500.html" target="_">Error 500</a>
+                            <a class="nav-item nav-link" href="">Dashdoard</a>
+                        </div>
+                    </div>
+                </nav>
+                <a class="btn btn-outline-light font-weight-bold ml-auto" href="../html/ingreso.html" target="_" id="nuestroMenu">Sing In</a>
+                <form class="d-none d-sm-block mx-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-0" placeholder="Buscar">
+                        <div class="input-group-append">
+                            <button class="btn btn-light" type="submit">
+                                <i class="icon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+	
+	</nav>
+	
+	<!-- CONTENIDO -->
+	<div>
+	
+	</div>
+	
+	<!-- PIE DE PAGINA  -->
+	<footer th:fragment="footer" class="sticky-bottom row d-none d-md-block" >
+	
+		<div class="container">
+				<div class="row d-flex justify-content-md-around justify-content-sm-center">
+					<div class="infoFooter col-sm-6 col-md-3 col-lg-auto ">
+						<hr class="m-0 d-block d-md-none">
+						<p class="font-weight-bold">About us</p>
+						<hr class="m-0">
+						<a href="../html/quienesSomos.php" target="contenidoIframe" class="nav-link text-secondary font-weight-light"><span>KangreSystem</span></a>
+						<a href="../html/trabajaConNosotros.php" target="contenidoIframe" class="nav-link text-secondary font-weight-light"><span>Make Money with Us</span></a>
+					</div>
+					<div class="logoFooter col-sm-6 col-md-3 col-lg-auto d-flex  flex-column align-self-center h-100">
+						<a href="https://lahamburgueseria.com/" target="_" title="La hamburgueseria" class="my-auto">
+							<img src="../img/la_hamburgueseria.png" alt="Logo de la hamburgueseria" class="img-fluid logos" title="laHamburgueseria">
+						</a>
+						<small class="text-muted mt-2 border-top">Information System</small>
+					</div>
+					<div class="infoFooter col-sm-6 col-md-3 col-lg-auto d-flex flex-column">
+						<hr class="m-0 d-block d-md-none">
+						<p class="font-weight-bold">Follow</p>
+						<hr class="m-0">
+						<div class="redesSociales d-flex justify-content-center">
+							<a href="https://www.facebook.com/lahamburgueseriaoficial" target="_" title="Facebook La Hamburgueseria"><i class="fab fa-facebook"></i></a>
+							<a href="https://twitter.com/HAMBURGUESERIA" target="_" title="Twitter La Hamburgueseria"><i class="fab fa-twitter"></i></a>
+							<a href="https://www.instagram.com/hamburgueserias/" target="_" title="Instagram La Hamburgueseria"><i class="fab fa-instagram"></i></a>
+						</div>
+						<hr class="m-0 d-none d-sm-block">
+					</div>
+					
+				</div>
+			</div>
+	
+		<script type="text/javascript" th:src="@{/js/jquery-3.4.1.slim.min.js}" ></script>
+		<script type="text/javascript" th:src="@{/js/popper.min.js}" ></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}" ></script>
+		
+	</footer>	
+
+</body>
+</html>

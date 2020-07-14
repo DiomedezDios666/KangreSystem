@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="plantilla/template :: head" >
+	<meta charset="UTF-8">
+	<title> Contacto </title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/contactenos.css}">
+	<link rel="shotcut icon" th:href="@{/img/logosimbolo.png}">
+	<script th:src="@{/js/contactenos.js}"></script>
+	<script src="https://kit.fontawesome.com/eb1bb051d4.js"></script>
+</head>
+<body>
+	
+	<header th:replace="plantilla/template :: header" ></header>
+	
+	<nav th:replace="plantilla/template :: navbar" ></nav>
+	
+	<main>
+		<div class="container py-4">
+			<h1 class="display-4 title text-center mb-4">Contact us</h1>
+			<hr>
+			<div class="row">
+				<div class="col-md col-sm-12 mb-4 form">
+					<div id="alerta"></div>
+					<form action="" id="contacto" class="needs-validation" name="contacto" novalidate>
+						<div class="form-group">
+							<select name="destino" id="destino" class="custom-select" required>
+								<option value="">Contact to </option>
+								<option value="1">KangreSystem</option>
+								<option value="2">La hamburgueseria</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input type="text" id="nombres" name="nombres" class="form-control text-capitalize" placeholder="Full Name" maxlength="50" required>
+						</div>
+						<div class="form-row form-group">
+							<div class="col">
+								<select name="ciudad" id="ciudad" class="custom-select" required>
+									<option value="">City</option>
+									<option value="1">Bogotá</option>
+									<option value="2">Chia</option>	
+								</select>
+							</div>
+							<div class="col">
+								<input type="text" id="telefono" name="telefono" class="form-control" placeholder="Phone number" maxlength="10" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="email" id="correo" name="correo" class="form-control" placeholder="E-mail" maxlength="50" required>
+						</div>
+						<div class="form-group">
+							<textarea name="mensaje" id="mensaje" rows="8" class="form-control text" placeholder="Message" maxlength="255" required></textarea>
+						</div>
+						<button type="submit" id="btn" name="btn" class="btn btn-primary btn-block">Send</button>
+					</form>
+					<hr class="d-block d-md-none">
+				</div>
+				<div class="col px-4">
+					<div class="card mb-2">
+						<div class="card-header bg-info">
+							<h4 class="text-light font-weight-light text-center">KangreSystem</h4>
+						</div>
+						
+						<div class="card-body mx-0" id="infoKS">
+							<h5 class="font-weight-bold">Clients and technical support</h5>
+							<hr>
+							<p class="">BOGOTÁ</p>
+							<p class="font-weight-light">Phone number: 322 855 7280, 315 354 8494, 311 859 6254</p>
+							<p class="font-weight-light">E-mail: <span class="text-primary font-weight-normal">kangresystem@gmail.com</span></p>
+						</div>
+						<div class="card-footer bg-info py-3">
+							 <div class="col  d-flex justify-content-center align-items-center">
+								<a href="" target="_blank" class="icono icon-facebook facebook"></a>
+								<a href="" target="_blank" class="icono icon-whatsapp whatsapp"></a>
+								<a href="" target="_blank" class="icono icon-twitter twitter"></a>
+								<a href="" target="_blank" class="icono icon-instagram instagram"></a>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header bg-danger">
+							<h4 class="text-light font-weight-light text-center">La Hamburgueseria</h4>
+						</div>
+		
+						<div class="card-body mx-0" id="infoLH">
+							<h5 class="font-weight-bold">Clients</h5>
+							<hr>
+							<p class="">BOGOTÁ</p>
+							<p class="font-weight-light">Phone number: 600 0969</p>
+							<p class="font-weight-light">E-mail <span class="text-primary font-weight-normal">info@lahamburgueseria.com</span></p>
+							<hr>
+							<p class="">CHÍA</p>
+							<p class="font-weight-light">Phone number: 657 6617</p>
+							<p class="font-weight-light">E-mail: <span class="text-primary font-weight-normal">chia@lahamburgueseria.com</span></p>
+						</div>
+						<div class="card-footer bg-danger py-3">
+							 <div class="col  d-flex justify-content-center align-items-center">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<footer th:replace="plantilla/template :: footer" ></footer>
+
+</body>
+</html>

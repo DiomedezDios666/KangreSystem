@@ -1,0 +1,80 @@
+body{
+	font-family: 'Open sans',sans-serif;
+	overflow-x: hidden;
+	font-size: 0.9rem;
+}
+form{
+	font-size: 0.8rem;
+}
+input[type="text"], option,.form-control, .direccion option{
+	font-size: 0.8rem;
+}
+.direccion .form-control{
+	padding: 0;
+}
+label{
+	font-weight: bolder;
+	color: rgba(0,0,0,0.7);
+}
+.logo img{
+	width: 400px;
+	margin: 20px 0;
+}
+.ingreso hr{
+	margin: 10px 0;
+}
+.ingreso h1{
+	font-size: 1.3rem;
+}
+.jumbotron{
+	background: rgba(0,0,0,0.06);
+	margin: 10px 0;
+	min-width: 290px;
+	padding: 20px;
+	max-width: 1000px;
+}
+
+
+/*---MEDIAQUERIES---*/
+
+/*Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap*/
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+	.ingreso h1{
+		font-size: 1.9rem;
+	}
+	.direccion select{
+		padding-left: 0px;
+	}
+}
+
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+	form{
+		font-size: 0.9rem;
+	}
+	.jumbotron{
+		padding: 20px 60px;
+	}
+	.direccion select{
+		padding-left: 5px;
+	}
+	input[type="text"], option,.form-control, .direccion option{
+	font-size: 0.9rem;
+}
+}
+
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+}
+
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}

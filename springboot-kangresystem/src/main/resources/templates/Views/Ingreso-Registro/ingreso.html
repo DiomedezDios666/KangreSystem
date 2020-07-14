@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<meta charset="UTF-8">
+	<title> Ingreso | KangreSystem </title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/ingreso.css}">
+	<link rel="shotcut icon" th:href="@{/img/logosimbolo.png}">
+	<script th:src="@{/js/ingreso.js}"></script>
+	<script src="https://kit.fontawesome.com/eb1bb051d4.js"></script>
+</head>
+<body class="row align-items-center vh-100">
+		<div class="container d-flex justify-content-center ">
+			<div class="jumbotron border">
+				<div class="row justify-content-center">
+					<div class="col ingreso">
+						<img th:src="@{/img/logoMonocro.png}" alt="logo KangreSystem" title="logo KangreSystem">
+						<hr>
+						<h1 class="text-center text-success font-weight-light">Sing in</h1>
+						<hr>
+						<div id="alerta" class="text-center"></div>
+						<form action="" class="align-items-center justify-content-center" id="ingreso" name="ingreso">
+							<div class="form-group">
+								<label for="numeroId" class="">ID</label>
+								<input type="text" class="form-control mb-2 text-center" id="id" name="id" autofocus pattern="[0-9]{3,15}" maxlength="15" required>
+								<div class="invalid-feedback">Insert ID</div>
+							</div>
+							<div class="form-group">
+								<label for="contraseña">Password</label>
+								<div class="input-group">
+									<input id="contraseña" name="contraseña" type="password" class="form-control text-center password"  maxlength="20" required>
+									<div class="input-group-append" title="Mostrar Contraseña">
+										<button id="mostrarContraseña" class="btn-ojo py-2" type="button" onclick="mostrarPassword();">
+											<span class="far fa-eye"></span>
+										</button>
+									</div>
+									<div class="invalid-feedback">Insert Password</div>
+								</div>
+							</div>
+							<a th:href="@{/restablecerContraseña}"><small class="form-text text-muted">Forgot My Password</small></a>
+							<hr>
+							<div class="btn-group w-100">
+								<a th:href="@{/index}" class="btn btn-outline-info font-weight-bold">Back</a>
+								<button type="submit" class="btn btn-outline-success font-weight-bold">Go</button>
+							</div>
+							<small class="mt-2 justify-content-center d-flex enlaceRegistro">Don't have an user? Create one now <a th:href="@{/registroCliente}" class="">here</a></small>	
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

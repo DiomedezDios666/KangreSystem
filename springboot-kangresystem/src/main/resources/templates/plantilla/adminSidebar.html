@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thyemleaf.org" >
+<head>
+	<meta charset="UTF-8">
+	<title> Admin </title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/dashboardAdmin.css}">
+	<link rel="shotcut icon" th:href="@{/img/logosimbolo.png}">
+	<script src="https://kit.fontawesome.com/eb1bb051d4.js"></script>
+</head>
+<body>
+	
+	<nav th:fragment="sidebar" class="col-auto d-none d-lg-block px-0 sticky-top">
+	    <div class="collapse navbar-collapse show h-100" id="navbarNavAltMarkup">
+	        <div class="d-flex flex-column barraLateral ">
+	            <div class="pan-superior d-flex align-items-center justify-content-center"></div>
+	            <div class="lechuga"></div>
+	            <span class="text-white-50 text-center py-2 text-uppercase font-weight-bold border-0 tipoUsuario">manager</span>
+	            <nav class="verticalMenu">
+	                <ul class="">
+	                    <li><a href=""><i class="fas fa-shoping-cart"></i><span>Purchases</span></a>
+	                        <ul>
+	                            <li class="primerItem"><a href=""><i class="fas fa-cart-plus"></i><span>New purchase</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-stopwatch"></i><span>Pending purchase</span></a></li>
+	                            <li class="ultimoItem"><a href=""><i class="fas fa-list-ul"></i><span>View all</span></a></li>	
+	                        </ul>
+	                    </li>
+	                    <li><a href=""><i class="icon-cw"></i><span>Returns</span></a>
+	                        <ul>
+	                            <li class="primerItem"><a href=""><i class="fas fa-plus"></i><span>New return</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-stopwatch"></i><span>Opened return</span></a></li>
+	                            <li class="ultimoItem"><a href=""><i class="fas fa-list-ul"></i><span>View all</span></a></li>	
+	                        </ul>
+	                    </li>
+	                    <li><a href=""><i class="icon-food"></i><span>Products</span></a>
+	                        <ul>
+	                            <li class="primerItem"><a href=""><i class="fas fa-plus"></i><span>Add new product</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-hamburger"></i><span>Burguers</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-hotdog"></i><span>Hotdog</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-mug-hot"></i><span>Hot drinks</span></a></li>
+	                            <li class=""><a href=""><i class="fab fa-gulp"></i><span>Cold drinks</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-mortar-pestle"></i><span>Soups</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-concierge-bell"></i><span>Main Dish</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-cocktail"></i><span>Coctails</span></a></li>
+	                            <li class=""><a href="plantilla.php"><i class="fas fa-beer"></i><span>Beers</span></a></li>
+	                            <li class="ultimoItem"><a href=""><i class="fas fa-list-ul"></i><span>View all</span></a></li>	
+	                        </ul>
+	                    </li>
+	                    <li><a href=""><i class="icon-exchange"></i><span>Receive purchase</span></a>
+	                        <ul>
+	                            <li class="primerItem"><a href=""><i class="fas fa-clipboard-check"></i><span>Receive purchase</span></a></li>
+	                            <li class="ultimoItem"><a href=""><i class="fas fa-list-ul"></i><span>View all</span></a></li>	
+	                        </ul>
+	                    </li>
+	                    <li><a href=""><i class="icon-industry"></i><span>Suppliers</span></a>
+	                        <ul>
+	                            <li class="primerItem"><a href=""><i class="fas fa-plus"></i><span>Add new</span></a></li>
+	                            <li class="ultimoItem"><a href=""><i class="fas fa-list-ul"></i><span>View all</span></a></li>	
+	                        </ul>
+	                    </li>
+	                    <li><a href=""><i class="fas fa-boxes"></i><span>Inventory</span></a>
+	                        <ul>
+	                            <li class="primerItem"><a href="inventario_.php"><i class="fas fa-fill-drip"></i><span>Stock</span></a></li>
+	                            <li class=""><a href="entradas_.php"><i class="fas fa-cloud-download-alt"></i><span>Inputs</span></a></li>
+	                            <li class=""><a href="salidas_.php"><i class="fas fa-cloud-upload-alt"></i><span>Outputs</span></a></li>
+	                            <li class="ultimoItem"><a href=""><i class="fas fa-plus"></i><span>Add supply</span></a></li>	
+	                        </ul>
+	                    </li>
+	                    <li><a href="averias_.php"><i class="fas fa-trash-alt"></i><span>Breakdowns</span></a>
+	                        <ul>
+	                            <li class="primerItem"><a href="nuevaAveria_.php"><i class="fas fa-plus"></i><span>New breakdown</span></a></li>
+	                            <li class="ultimoItem"><a href=""><i class="fas fa-list-ul"></i><span>View all</span></a></li>	
+	                        </ul>
+	                    </li>
+	                    
+	                    <li><a href=""><i class="fas fa-star"></i><span>Loyalty</span></a></li>
+	                    <li><a href=""><i class="fas fa-users"></i><span>Users</span></a>
+	                        <ul>
+	                            <li class="primerItem"><a href=""><i class="fas fa-user-plus"></i><span>Add new</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-user-tie"></i><span>Employees</span></a></li>
+	                            <li class=""><a href=""><i class="fas fa-user"></i><span>Customers</span></a></li>
+	                            <li class="ultimoItem"><a href=""><i class="fas fa-list-ul"></i><span>View all</span></a></li>	
+	                        </ul>
+	                    </li>
+	                    <li><a href=""><i class="fas fa-money-bill-wave"></i><span>Sales</span></a></li>
+	                    <li><a href=""><i class="fas fa-newspaper"></i><span>News</span><span class="badge badge-success">1</span></a></li>
+	
+	                </ul>
+	            </nav>
+	            <div class="footer mt-auto">
+	                <div class="contacto mt-2 d-flex justify-content-center py-1">
+	                    <a href="" title="Facebook"><i class="icono facebook icon-facebook"></i></a>
+	                    <a href="" title="Twitter"><i class="icono twitter icon-twitter"></i></a>
+	                    <a href="" title="Whatsapp"><i class="icono whatsapp icon-whatsapp"></i></a>
+	                    <a href="" title="Ayuda"><i class="icono info icon-info-circled"></i></a>
+	                </div>
+	                <div class="queso"></div>
+	                
+	                <div class="idioma p-2 d-flex justify-content-center">
+	                    <a href="#" class="btn btn-outline-dark btn-sm font-weight-light" title="Cambiar idioma">
+	                        <img src="../../../../img/banderaUSA.png" alt="" width="30px">
+	                        <span>ENGLISH LANGUAGE</span>
+	                    </a>
+	                    
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</nav> 
+  
+
+</body>
+</html>
