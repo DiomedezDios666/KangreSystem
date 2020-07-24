@@ -9,9 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity 
-@Table(name="categorias_proveedor")
-public class CategoriaProveedor implements Serializable {
+@Entity
+@Table(name="categorias_producto")
+public class CategoriaProducto implements Serializable{
 	
 	/**
 	 * 
@@ -22,6 +22,7 @@ public class CategoriaProveedor implements Serializable {
 	@Column(name="id_categoria")
 	private Long idCategoria;
 	private String categoria;
+	
 	
 	
 	public Long getIdCategoria() {
@@ -35,7 +36,7 @@ public class CategoriaProveedor implements Serializable {
 	}
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
-	}
+	}	
 	
 
 }

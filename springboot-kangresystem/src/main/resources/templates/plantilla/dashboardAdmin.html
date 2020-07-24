@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html xmlns:th="http://www.thyemleaf.org" >
 <head th:fragment="burguer" >
 	<meta charset="UTF-8">
@@ -111,7 +111,7 @@
 										</ul>
 									</li>
 									<li><a href=""><i class="fas fa-user-plus mr-2"></i>Nuevo Proveedor</a></li>
-									<li><a href=""><i class="fas fa-clipboard-list mr-2"></i>Ver Proveedores</a></li>
+									<li><a th:href="@{/proveedor/}"><i class="fas fa-clipboard-list mr-2"></i>Ver Proveedores</a></li>
 								</ul>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="#">Inventario</a>
@@ -130,6 +130,8 @@
 							</li>
 							<li class="nav-item"><a class="nav-link" href="#">Productos</a>
 								<ul>
+									<li><a th:href="@{/producto/}"><i class="fas fa-clipboard-list mr-2"></i>Ver todos</a></li>
+									<li><a th:href="@{/producto/crear}"><i class="fas fa-plus mr-2"></i>Nuevo Producto</a></li>
 									<li><a href=""><i class="fas fa-hamburger mr-2"></i>Hamburguesas</a></li>
 									<li><a href=""><i class="fas fa-hotdog mr-2"></i>Perros Calientes</a></li>
 									<li><a href=""><i class="fas fa-mug-hot mr-2"></i>Bebidas Calientes</a></li>
@@ -138,8 +140,7 @@
 									<li><a href=""><i class="fas fa-utensils mr-2"></i>Platos Fuertes</a></li>
 									<li><a href=""><i class="fas fa-cocktail mr-2"></i>Cocteles</a></li>
 									<li><a href=""><i class="fas fa-beer mr-2"></i>Cervezas</a></li>
-									<li><a href=""><i class="fas fa-clipboard-list mr-2"></i>Ver todos</a></li>
-									<li><a href=""><i class="fas fa-plus mr-2"></i>Nuevo Producto</a></li>
+									
 								</ul>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="#">Fidelizacion</a></li>
@@ -156,8 +157,26 @@
 						</ul>
 					</div>
 				</nav>
+				<!-- MENSAJES -->
+				<div class="alert alert-success alert-dismissable" th:if="${success != null}">
+					<label th:text="${success}"></label>
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				</div>
+				<div class="alert alert-danger alert-dismissable" th:if="${error != null}">
+					<label th:text="${error}"></label>
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				</div>
+				<div class="alert alert-warning alert-dismissable" th:if="${warning != null}">
+					<label th:text="${warning}"></label>
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				</div>
+				<div class="alert alert-info alert-dismissable" th:if="${info != null}">
+					<label th:text="${info}"></label>
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+				</div>
 			</div>
 		</div>
+
 		
 		<!-- CONTENIDO -->
 		<div class="content my-4 text-justify mx-auto">

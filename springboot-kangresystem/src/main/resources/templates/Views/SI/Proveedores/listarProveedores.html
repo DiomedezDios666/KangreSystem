@@ -11,14 +11,60 @@
 	<nav th:replace="plantilla/dashboardAdmin :: meat" ></nav>
 	
 	<div class="container" >
-		<h1 th:text="${Titulo}"></h1>
+		<h1 th:text="${Titulo}" class="text-center my-4"></h1>
+		<hr>
+		<form th:action="@{/proveedor/}" th:object="${proveedor}" method="post">
+			<div class="form-row">
+				<div class="col-4">
+					<div class="form-group" >
+						<label class="my-1" for="nombre">Nombre</label>
+						<input type="text" th:field="*{nombre}"  class="form-control" name="nombre" id="nombre">
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group" >
+						<label class="my-1" for="ciudad">Ciudad</label>
+						<select th:field="*{ciudad}" class="custom-select"  name="ciudad" id="ciudad" >
+							<option th:value="''" th:text="''"/>
+							<option th:value="BOGOTA" th:text="'BOGOTA'"/>
+							<option th:value="CHIA" th:text="'CHIA'"/>
+							<option th:value="COTA" th:text="'COTA'"/>
+						</select>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group" >
+						<label class="my-1" for="estado">Estado</label>
+						<!-- <input type="text" th:field="*{estado}"  class="form-control" name="estado" id="estado"> -->
+						<select th:field="*{estado}" class="custom-select"  name="estado" id="estado" >
+							<option th:value="''" th:text="''"/>
+							<option th:value="ACTIVO" th:text="'ACTIVO'"/>
+							<option th:value="INACTIVO" th:text="'INACTIVO'"/>
+						</select>
+					</div>
+				</div>
+				
+				<div class="col align-items-center d-flex">
+					<div class="btn-group btn-group-toggle" data-toggle="buttons">
+						<button type="submit" class="btn btn-info mt-3 ml-4">Submit</button>
+					 	<input type="button" class="btn btn-outline-info mt-3" value="Clear" id="btnClear" onclick="clearSearch()" />
+					 	
+				 	</div>
+				 	
+				</div>
+			</div>
+		</form>
 	</div>
 	
-	<div class="container" >
+	<div class="content mx-auto d-block" >
 		
-		<table class="table table-striped">
+		<a class="btn btn-success" th:href="@{/proveedor/crear}" th:text="'Nuevo Proveedor'" title="Crear Nuevo Registro"></a>
+		<a th:href="@{/proveedor/export}"><img th:src="@{/img/excel2.png}" class="img-fluid" width="40" heigt="40" ></a>
+		
+		<table class="table table-striped my-4">
 		  <thead>
 		    <tr>
+	    	  <th scope="col">ID</th>
 		      <th scope="col">NIT</th>
 		      <th scope="col">Nombre</th>
 		      <th scope="col">Telefono</th>
@@ -28,11 +74,14 @@
 		      <th scope="col">Direccion</th>
 		      <th scope="col">Categoria</th>
 		      <th scope="col">Estado</th>
+		      <th scope="col">Editar</th>
+		      <th scope="col">Eliminar</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		    <tr th:each="pv:${proveedores}" >
-		      <th scope="row" th:text="${pv.nitProveedor}"></th>
+		      <th scope="row" th:text="${pv.idProveedor}"></th>
+		      <td th:text="${pv.nitProveedor}" ></td>
 		      <td th:text="${pv.nombre}" ></td>
 		      <td th:text="${pv.telefono}" ></td>
 		      <td th:text="${pv.celular}" ></td>
@@ -40,16 +89,26 @@
 		      <td th:text="${pv.ciudad}" ></td>
 		      <td th:text="${pv.direccion}" ></td>
 		      <td th:text="${pv.categoriaProveedor.categoria}" ></td>
-		      <td th:text="${pv.estado}" ></td>
+		      <td th:text="${pv.estado}"></td>
+		      <td>
+	      		<a class="btn btn-secondary btn-sm" th:href="@{/proveedor/edit/} + ${pv.idProveedor}" th:text="'Editar'" title="Modificar Registro"></a>
+			  </td>
+		      <td>
+	      		<a class="btn btn-danger btn-sm" th:href="@{/proveedor/delete/} + ${pv.idProveedor}" th:text="'Eliminar'" title="Eliminar registro"
+	      		onclick="return confirm('¿Estas seguro que deseas eliminar el registro? Los cambios seran permanentes.');"></a>
+			  </td>
+			 
 		    </tr>
 		  </tbody>
 		</table>
-		<div>
-			<a href="/Views/SI/Proveedores/export/all" class="btn btn-danger">Exportar</a>
-		</div>
+		
 	</div>
 	
 	<footer th:replace="plantilla/dashboardAdmin :: downbread" ></footer>
-
+	<script type="text/javascript">
+	    function clearSearch() {
+	        window.location = "[[@{/proveedor/}]]";
+	    }
+	</script>	
 </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/dashboardAdmin :: burguer">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header th:replace="plantilla/dashboardAdmin :: bread"></header>
+
+	<nav th:replace="plantilla/dashboardAdmin :: meat"></nav>
+
+	<div class="container">
+	
+	<div class="card">
+		<div class="card-header" th:text="${titulo}"></div>
+		<div class="card-body">
+	
+		<form th:action="@{/producto/crear}" th:object="${producto}"  method="post">
+			<input type="hidden" th:field="*{idProducto}">
+			<div class="form-group row">
+				<label class="col-md-2" for="codBarra">CodBarra: </label> 
+				<input type="text" th:field="*{codBarra}" class="form-control form-control-sm col-md-6 " id="codBarra">  
+					<div class="alert-danger" th:if="${#fields.hasErrors('codBarra')}" th:errors="*{codBarra}">Name Error</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2" for="nombre">Nombre:</label> 
+				<input type="text" th:field="*{nombreProducto}" class="form-control form-control-sm col-md-6 " id="nombreProducto"
+					placeholder="Nombre del producto">  
+					<div class="alert-danger" th:if="${#fields.hasErrors('nombreProducto')}" th:errors="*{nombreProducto}">Name Error</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2" for="detalle">Detalle: </label> 
+				<input type="text" th:field="*{detalle}" class="form-control form-control-sm col-md-6 " id="detalle"
+					placeholder="Escriba el detalle">  
+					<div class="alert-danger" th:if="${#fields.hasErrors('detalle')}" th:errors="*{detalle}">Name Error</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2" for="PrecioVenta">Precio: </label> 
+				<input type="text" th:field="*{precioVenta}" class="form-control form-control-sm col-md-6 " id="precioVenta"
+					placeholder=" $$$ ">
+				<div class="alert-danger" th:if="${#fields.hasErrors('detalle')}" th:errors="*{detalle}">Name Error</div>  
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2" for="categoria">Categoria: </label> 
+				<select  class="form-control form-control-sm col-md-6 " id="categoria" th:field="*{categoriaProducto.idCategoria}">
+					<option th:each="cat:${categorias}" th:value="${cat.idCategoria}" th:text="${cat.categoria}"/>
+				</select> 
+					
+			</div>
+
+			<input type="submit" class="btn btn-danger btn-sm" value="Guardar">
+		</form>
+		</div>
+	</div>
+
+	</div>
+
+	<footer th:replace="plantilla/dashboardAdmin :: downbread"></footer>
+
+</body>
+</html>

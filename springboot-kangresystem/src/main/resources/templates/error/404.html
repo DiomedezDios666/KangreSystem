@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="plantilla/dashboardAdmin :: burguer" >
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>	
+<body>
+
+	<div class="container text-center py-5">
+		<div class="panel">
+			<div class="panel-body">
+				<img th:src="@{/img/error404.png}">
+				<br>
+				<button class="btn btn-success" onclick="goBack()">&laquo;Regresar</button>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		function goBack(){
+			window.history.back();
+		}
+	</script>
+
+</body>
+</html>

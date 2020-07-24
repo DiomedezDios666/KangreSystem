@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head th:replace="plantilla/dashboardAdmin :: burguer" >
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>	
+<body>
+
+	<header th:replace="plantilla/dashboardAdmin :: bread" ></header>
+	
+	<nav th:replace="plantilla/dashboardAdmin :: meat" ></nav>
+	
+	<div class="container" >
+		<h1 th:text="${titulo}" class="text-center my-4"></h1>
+		<hr>
+	</div>
+	<div class="content mx-auto d-block" >
+		<a class="tbn btn-danger btn-sm" th:href="@{/producto/crear}" th:text="'Nuevo Producto'" title="Crear Nuevo Registro"></a>
+		<a th:href="@{/producto/export}"><img th:src="@{/img/excel2.png}" class="img-fluid" width="30" heigt="30" ></a>
+		
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+	    	  <th scope="col">ID</th>
+		      <th scope="col">Cod Barra</th>
+		      <th scope="col">Nombre</th>
+		      <th scope="col">Detalle</th>
+		      <th scope="col">Precio</th>
+		      <th scope="col">Categoria</th>
+		      <th scope="col">Estado</th>
+		      <th scope="col">Editar</th>
+		      <th scope="col">Eliminar</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="pd:${productos}" >
+		      <th scope="row" th:text="${pd.idProducto}"></th>
+		      <td th:text="${pd.codBarra}" ></td>
+		      <td th:text="${pd.nombreProducto}" ></td>
+		      <td th:text="${pd.detalle}"></td>
+		      <td th:text="${pd.precioVenta}" ></td>
+		      <td th:text="${pd.categoriaProducto.categoria}" ></td>
+		      <td th:text="${pd.estado}"></td>
+		      <td>
+	      		<a class="tbn btn-success btn-sm" th:href="@{/producto/edit/} + ${pd.idProducto}" th:text="'Editar'" title="Modificar Registro"></a>
+			  </td>
+		      <td>
+	      		<a class="tbn btn-danger btn-sm" th:href="@{/producto/delete/} + ${pd.idProducto}" th:text="'Eliminar'" title="Eliminar registro"
+	      		onclick="return confirm('¿Estas seguro que deseas eliminar el registro? Los cambios seran permanentes.');"></a>
+			  </td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
+	
+	<footer th:replace="plantilla/dashboardAdmin :: downbread" ></footer>
+
+</body>
+</html>

@@ -1,86 +1,83 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="plantilla/template :: head">
+<head th:replace="plantilla/dashboardAdmin :: burguer">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<header th:replace="plantilla/template :: header"></header>
+	<header th:replace="plantilla/dashboardAdmin :: bread"></header>
 
-	<nav th:replace="plantilla/template :: navbar"></nav>
+	<nav th:replace="plantilla/dashboardAdmin :: meat"></nav>
 
 	<div class="container">
 	
 	<div class="card">
-		<div class="card-header"></div>
+		<div class="card-header" th:text="${titulo}"></div>
 		<div class="card-body">
 	
-		<form>
+		<form th:action="@{/proveedor/crear}" th:object="${proveedor}"  method="post">
+			<input type="hidden" th:field="*{idProveedor}">
 			<div class="form-group row">
 				<label class="col-md-2" for="nitProveedor">Nit:</label> 
-				<input type="text" class="form-control form-control-sm col-md-6 " id="nitProveedor"
-					placeholder="Ingrese el Nit del proveedor">  
-					<small></small>
+				<input type="text" th:field="*{nitProveedor}" class="form-control form-control-sm col-md-6 " id="nitProveedor"
+					placeholder="Nit del proveedor">  
+				<div class="alert-danger" th:if="${#fields.hasErrors('nitProveedor')}" th:errors="*{nitProveedor}">Name Error</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-md-2" for="nombre">Nombre:</label> 
-				<input type="text" class="form-control form-control-sm col-md-6 " id="nombre"
-					placeholder="Ingrese el nombre del proveedor">  
-					<small></small>
+				<input type="text" th:field="*{nombre}" class="form-control form-control-sm col-md-6 " id="nombre"
+					placeholder="Nombre del proveedor">  
+				<div class="alert-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Name Error</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-md-2" for="telefono">Teléfono:</label> 
-				<input type="text" class="form-control form-control-sm col-md-6 " id="telefono"
-					placeholder="Ingrese el telefono del proveedor">  
-					<small></small>
+				<input type="text" th:field="*{telefono}" class="form-control form-control-sm col-md-6 " id="telefono"
+					placeholder="Telefono del proveedor"> 
+				<div class="alert-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">Name Error</div> 
 			</div>
 			<div class="form-group row">
 				<label class="col-md-2" for="celular">Celular:</label> 
-				<input type="text" class="form-control form-control-sm col-md-6 " id="celular"
-					placeholder="Ingrese el celular del proveedor">  
-					<small></small>
+				<input type="text" th:field="*{celular}" class="form-control form-control-sm col-md-6 " id="celular"
+					placeholder="Celular del proveedor">  
 			</div>
 			<div class="form-group row">
 				<label class="col-md-2" for="email">E-mail:</label> 
-				<input type="text" class="form-control form-control-sm col-md-6 " id="email"
-					placeholder="Ingrese el E-mail del proveedor">  
-					<small></small>
+				<input type="text" th:field="*{email}" class="form-control form-control-sm col-md-6 " id="email"
+					placeholder="E-mail del proveedor">
+				<div class="alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-md-2" for="ciudad">Ciudad:</label> 
-				<input type="text" class="form-control form-control-sm col-md-6 " id="ciudad"
-					placeholder="Ingrese la ciudad del proveedor">  
-					<small></small>
+				<select  class="form-control form-control-sm col-md-6 " id="ciudad" th:field="*{ciudad}">
+					<option th:value="BOGOTA" th:text="'Bogotá'"/>
+					<option th:value="CHIA" th:text="'Chia'"/>
+					<option th:value="COTA" th:text="'Cota'"/>
+				</select>  
+				<div class="alert-danger" th:if="${#fields.hasErrors('ciudad')}" th:errors="*{ciudad}">Name Error</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-md-2" for="direccion">Dirección:</label> 
-				<input type="text" class="form-control form-control-sm col-md-6 " id="direccion"
+				<input type="text" th:field="*{direccion}" class="form-control form-control-sm col-md-6 " id="direccion"
 					placeholder="Ingrese la direccion del proveedor">  
-					<small></small>
+				<div class="alert-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Name Error</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-md-2" for="idCategoria">Categoria:</label> 
-				<select class="form-control form-control-sm col-md-6 " id="idCategoria">
-					<option> 
+				<label class="col-md-2" for="categoria">Categoria:</label> 
+				<select  class="form-control form-control-sm col-md-6 " id="categoria" th:field="*{categoriaProveedor.idCategoria}">
+					<option th:each="cat:${categorias}" th:value="${cat.idCategoria}" th:text="${cat.categoria}"/>
 				</select> 
 					
 			</div>
-			<div class="form-group row">
-				<label class="col-md-2" for="estado">Estado:</label> 
-				<input type="text" class="form-control form-control-sm col-md-6 " id="estado"
-					placeholder="Ingrese el estado del proveedor">  
-					<small></small>
-			</div>
 
-			<input type="submit" class="btn btn-primary btn-sm" value="Guardar">
+			<input type="submit" class="btn btn-danger btn-sm" value="Guardar">
 		</form>
 		</div>
 	</div>
 
 	</div>
 
-	<footer th:replace="plantilla/template :: footer"></footer>
+	<footer th:replace="plantilla/dashboardAdmin :: downbread"></footer>
 
 </body>
 </html>
